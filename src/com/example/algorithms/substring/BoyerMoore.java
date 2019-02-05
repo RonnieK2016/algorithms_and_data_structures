@@ -46,6 +46,6 @@ public class BoyerMoore {
     public static void main(String[] args) {
         BoyerMoore boyerMoore = new BoyerMoore("baa");
         System.out.println(boyerMoore.searchIn("aaaaa"));
-        System.out.println(boyerMoore.searchIn("aabaaa"));
+        System.out.println(boyerMoore.searchIn("ccabaaa"));
     }
 }
