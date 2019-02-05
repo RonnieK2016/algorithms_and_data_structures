@@ -65,4 +65,37 @@ public class Trie {
 
         return  result;
     }
+
+    private int getIndexIfOnlyOneNode(Node parent) {
+        if(parent == null) {
+            return -1;
+        }
+
+        int result = -1;
+        Node[] children = parent.getChildren();
+        for(int i = 0; i < children.length; i++) {
+            if(children[i] != null) {
+                if(result != -1) {
+                    result = -1;
+                    break;
+                }
+                result = i;
+            }
+        }
+
+        return result;
+    }
+
+    public String getLCP() {
+        Node c = root;
+        StringBuilder result = new StringBuilder();
+
+        int idx = -1;
+        while((idx = getIndexIfOnlyOneNode(c)) != -1 && !c.isLeaf()) {
+            c = c.getChildren()[idx];
+            result.append(c.getCharacter());
+        }
+
+        return result.toString();
+    }
 }
